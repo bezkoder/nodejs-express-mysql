@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const router = require('./app/routes/index.routes.js')
 
 const app = express();
 
@@ -14,7 +15,10 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 
-require("./app/routes/customer.routes.js")(app);
+//require("./app/routes/customer.routes.js")(app);
+// Using router 
+app.use("/",router)
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
