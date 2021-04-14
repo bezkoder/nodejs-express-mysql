@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
 require("./app/routes/pupil.routes.js")(app);
 require("./app/routes/teacher.routes.js")(app);
 require("./app/routes/achievement.routes.js")(app);
+require("./app/routes/olympiad.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
