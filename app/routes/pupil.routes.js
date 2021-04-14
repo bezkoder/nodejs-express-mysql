@@ -5,7 +5,7 @@ module.exports = app => {
   app.get("/pupils", pupils.findAll);
 
   // Retrieve a single pupil with pupilId
-  app.get("/pupils/:pupilId", pupils.findOne);
+  app.post("/login", pupils.loginStudent);
 
   // Retrieve classmates
   app.get("/pupils/classmates/:classId", pupils.findByClass);

@@ -13,16 +13,16 @@ exports.findAll = (req, res) => {
 };
 
 // Find a single Pupil with a pupilId
-exports.findOne = (req, res) => {
-  Pupil.findById(req.params.pupilId, (err, data) => {
+exports.loginStudent = (req, res) => {
+  Pupil.loginUser(req.body.login, req.body.password, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Pupil with id ${req.params.pupilId}.`
+          message: `Not found Pupil with login ${login} and password ${password}`
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving Pupil with id " + req.params.pupilId
+          message: "Error retrieving Pupil with login " + req.params.login
         });
       }
     } else res.send(data);

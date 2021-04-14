@@ -12,8 +12,8 @@ const Pupil = function(Pupil) {
 };
 
 
-Pupil.findById = (PupilId, result) => {
-  sql.query(`SELECT * FROM Pupils WHERE id = ${PupilId}`, (err, res) => {
+Pupil.loginUser = (login, password, result) => {
+  sql.query(`SELECT * FROM pupil WHERE login = '${login}' AND password = '${password}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
