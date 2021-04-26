@@ -18,11 +18,11 @@ exports.loginStudent = (req, res) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Pupil with login ${login} and password ${password}`
+          message: `Not found Pupil with login ${req.body.login} and password ${req.body.password}`
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving Pupil with login " + req.params.login
+          message: "Error retrieving Pupil with login " + req.body.login
         });
       }
     } else res.send(data);
