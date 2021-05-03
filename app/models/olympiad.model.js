@@ -23,7 +23,7 @@ Olympiad.create = (newPupil, result) => {
 };
 
 Olympiad.findByPupilId = (pupilId, result) => {
-  sql.query(`SELECT * FROM olympiad WHERE pupil_id = ${pupilId}`, (err, res) => {
+  sql.query(`SELECT o.*, s.name as subject_name FROM olympiad o, subject s WHERE pupil_id = ${pupilId} AND o.subject_id = s.id`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);

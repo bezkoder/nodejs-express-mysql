@@ -26,6 +26,7 @@ Pupil.loginUser = (login, password, result) => {
         id: res[0].id,
         name: res[0].name,
         age: res[0].age,
+        gender: res[0].gender,
         phone: res[0].phone,
         school_class: {
           id: res[0].class_id,
@@ -34,6 +35,7 @@ Pupil.loginUser = (login, password, result) => {
           letter: res[0].letter
         },
         school: {
+          id: res[0].school_id,
           name: res[0].school_name,
           address: res[0].school_address,
           phone: res[0].school_phone
