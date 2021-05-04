@@ -6,13 +6,14 @@ const Teacher = function(Teacher) {
   this.school_id = Teacher.school_id
   this.name = Teacher.name;
   this.phone = Teacher.phone;
+  this.gender = Teacher.gender;
   this.education = Teacher.education;
   this.experience = Teacher.experience;
 };
 
 
 Teacher.getByClass = (classId, result) => {
-  sql.query(`SELECT * FROM teacher t, class c WHERE t.id = c.form_master AND c.id = ${classId}`, (err, res) => {
+  sql.query(`SELECT t.* FROM teacher t, class c WHERE t.id = c.form_master AND c.id = ${classId}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
