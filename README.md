@@ -48,6 +48,8 @@ Fullstack:
 
 > [Angular 12 + Node.js Express + MySQL example](https://www.bezkoder.com/angular-12-node-js-express-mysql/)
 
+> [Angular 13 + Node.js Express + MySQL example](https://www.bezkoder.com/angular-13-node-js-express-mysql/)
+
 > [React + Node.js + Express + MySQL example](https://www.bezkoder.com/react-node-express-mysql/)
 
 > [React + Redux + Node.js Express + MySQL](https://www.bezkoder.com/react-redux-mysql-crud/)
