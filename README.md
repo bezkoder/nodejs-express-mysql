@@ -6,7 +6,7 @@ For instruction, please visit:
 Front-end that works well with this Back-end
 > [Axios Client](https://www.bezkoder.com/axios-request/)
 
-> [Angular 8 Client](https://www.bezkoder.com/angular-crud-app/) / [Angular 10 Client](https://www.bezkoder.com/angular-10-crud-app/) / [Angular 11 Client](https://www.bezkoder.com/angular-11-crud-app/) / [Angular 12 Client](https://www.bezkoder.com/angular-12-crud-app/) / [Angular 13 Client](https://www.bezkoder.com/angular-13-crud-example/)
+> [Angular 8](https://www.bezkoder.com/angular-crud-app/) / [Angular 10](https://www.bezkoder.com/angular-10-crud-app/) / [Angular 11](https://www.bezkoder.com/angular-11-crud-app/) / [Angular 12](https://www.bezkoder.com/angular-12-crud-app/) / [Angular 13](https://www.bezkoder.com/angular-13-crud-example/) / [Angular 14](https://www.bezkoder.com/angular-14-crud-example/) / [Angular 15](https://www.bezkoder.com/angular-15-crud-example/) / [Angular 16 Client](https://www.bezkoder.com/angular-16-crud-example/)
 
 > [Vue 2 Client](https://www.bezkoder.com/vue-js-crud-app/) / [Vue 3 Client](https://www.bezkoder.com/vue-3-crud/) / [Vuetify Client](https://www.bezkoder.com/vuetify-data-table-example/)
 
@@ -47,6 +47,14 @@ Fullstack:
 > [Angular 11 + Node.js Express + MySQL example](https://www.bezkoder.com/angular-11-node-js-express-mysql/)
 
 > [Angular 12 + Node.js Express + MySQL example](https://www.bezkoder.com/angular-12-node-js-express-mysql/)
+
+> [Angular 13 + Node.js Express + MySQL example](https://www.bezkoder.com/angular-13-node-js-express-mysql/)
+
+> [Angular 14 + Node.js + Express + MySQL example](https://www.bezkoder.com/angular-14-node-js-express-mysql/)
+
+> [Angular 15 + Node.js + Express + MySQL example](https://www.bezkoder.com/angular-15-node-js-express-mysql/)
+
+> [Angular 16 + Node.js + Express + MySQL example](https://www.bezkoder.com/angular-16-node-js-express-mysql/)
 
 > [React + Node.js + Express + MySQL example](https://www.bezkoder.com/react-node-express-mysql/)
 
