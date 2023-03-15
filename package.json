@@ -15,8 +15,8 @@
   "author": "bezkoder",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "mysql": "^2.18.1"
+    "cors": "2.8.5",
+    "express": "4.18.1",
+    "mysql": "2.18.1"
   }
 }
