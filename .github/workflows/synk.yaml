@@ -17,10 +17,8 @@ jobs:
       - name: Snyk scan
         run: snyk auth ce1d4d14-9e9b-4caa-91dc-b904b253891e
       - name: npm installation
-        run: npm install --package-lock-only
+        run: npm install --strict-out-of-sync=false
       - name: Snyk testing 
-        run: snyk test && npm install --package-lock-only
-      - name: node module updations
-        run: npm install
+        run: snyk test && npm install --strict-out-of-sync=false
         env:
           SNYK_TOKEN: ${{ secrets.ce1d4d14-9e9b-4caa-91dc-b904b253891e }}
