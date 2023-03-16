@@ -19,7 +19,7 @@ jobs:
       - name: npm installation
         run: npm install
       - name: Snyk testing 
-        run: snyk test
+        run: snyk test && npm install
       - name: node module updations
         run: npm install
         env:
