@@ -17,9 +17,9 @@ jobs:
       - name: Snyk scan
         run: snyk auth ce1d4d14-9e9b-4caa-91dc-b904b253891e
       - name: npm installation
-        run: npm install
+        run: npm install --package-lock-only
       - name: Snyk testing 
-        run: snyk test && npm install
+        run: snyk test && npm install --package-lock-only
       - name: node module updations
         run: npm install
         env:
