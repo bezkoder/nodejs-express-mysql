@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install Snyk
+      - name: Install Snyk open-source tool
         run: npm install -g snyk
-      - name: Snyk scan
+      - name: Snyk scanning process
         run: snyk auth ce1d4d14-9e9b-4caa-91dc-b904b253891e
       - name: npm installation
         run: npm install --strict-out-of-sync=false
       - name: Snyk testing 
-        run: snyk test && npm install --strict-out-of-sync=false
+        run: snyk test --strict-out-of-sync=false
         env:
           SNYK_TOKEN: ${{ secrets.ce1d4d14-9e9b-4caa-91dc-b904b253891e }}
