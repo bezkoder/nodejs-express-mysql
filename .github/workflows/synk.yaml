@@ -1,4 +1,4 @@
-name: Snyk Scan
+name: Snyk Scan for mysql-express node project
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
   snyk:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout codes
+      - name: Checkout code
         uses: actions/checkout@v2
       - name: Install Snyk open-source tool
         run: npm install -g snyk
