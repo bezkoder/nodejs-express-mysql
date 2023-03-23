@@ -1,45 +1,45 @@
-# name: Sonar Scan
-# on:
-#   push:
-#     branches:
-#       - master
-#   pull_request:
-#     types: [opened, synchronize, reopened]
-# jobs:
-#   sonarcloud:
-#     name: SonarCloud
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#         with:
-#           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-#       - name: SonarCloud Scan
-#         uses: SonarSource/sonarcloud-github-action@master
-#         env:
-#           # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-name: Snyk Scan for mysql-express node project
-
+name: Sonar Scan
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
-
+    types: [opened, synchronize, reopened]
 jobs:
-  snyk:
+  sonarcloud:
+    name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install Snyk open-source tool
-        run: npm install -g snyk
-      - name: Snyk scanning process
-        run: snyk auth ce1d4d14-9e9b-4caa-91dc-b904b253891e
-      - name: npm installation
-        run: npm install --strict-out-of-sync=false
-      - name: Snyk testing 
-        run: snyk test --strict-out-of-sync=false
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
-          SNYK_TOKEN: ${{ secrets.ce1d4d14-9e9b-4caa-91dc-b904b253891e }}
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+# name: Snyk Scan for mysql-express node project
+
+# on:
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
+
+# jobs:
+#   snyk:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+#       - name: Install Snyk open-source tool
+#         run: npm install -g snyk
+#       - name: Snyk scanning process
+#         run: snyk auth ce1d4d14-9e9b-4caa-91dc-b904b253891e
+#       - name: npm installation
+#         run: npm install --strict-out-of-sync=false
+#       - name: Snyk testing 
+#         run: snyk test --strict-out-of-sync=false
+#         env:
+#           SNYK_TOKEN: ${{ secrets.ce1d4d14-9e9b-4caa-91dc-b904b253891e }}
