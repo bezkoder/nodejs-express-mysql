@@ -1,5 +1,6 @@
 module.exports = {
-  HOST: "xbilos-hw2.database.windows.net",
-  USER: "485153@muni.cz",
- DB: "hw2"
+  HOST: process.env.DB_HOST,
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_PASSWORD,
+  DB: process.env.DB_NAME,
 };
