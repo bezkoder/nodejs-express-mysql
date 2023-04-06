@@ -8,8 +8,7 @@ var connection = mysql.createPool({
   password: dbConfig.PASSWORD,
   database: dbConfig.DB,
   ssl: {
-    // ca: fs.readFileSync(__dirname + "/../..//DigiCertGlobalRootCA.crt.pem"),
-    ca: process.env.DB_CERTIFICATE,
+    ca: `-----BEGIN CERTIFICATE-----\n${dbConfig.CERTIFICATE}\n-----END CERTIFICATE-----`,
   },
 });
 
