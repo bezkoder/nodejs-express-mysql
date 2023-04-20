@@ -25,16 +25,15 @@
      runs-on: ubuntu-latest
      
      steps:    
-      - name: Review request
-        uses: trstringer/manual-approval@v1
+      - name: Request approval
+        uses: peter-evans/create-pull-request-review@v1
         with:
-            secret: ${{ secrets.GT_TOKEN }}
-            approvers: Abhi-Moreyeahs  
-            minimum-approvals: 1
-            issue-title: "Sonar CLoud Scanning Process"
-            issue-body: "Please approve or deny the Sccaned Quality gate"
-            additional-approved-words: 'Accepted'
-            additional-denied-words: 'Rejected'
+          github-token: ${{ secrets.GT_TOKEN }}
+          reviewers: Abhi-Moreyeahs, drashinkar
+          team-reviewers: Abhi-Moreyeahs, drashinkar
+          message: Please review the code changes and approve or request changes.     
+          additional-approved-words: 'Accepted'
+          additional-denied-words: 'Rejected'
             
 
 
