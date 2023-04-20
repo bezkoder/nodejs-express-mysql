@@ -33,7 +33,6 @@
             minimum-approvals: 1
             issue-title: "Sonar CLoud Scanning Process"
             issue-body: "Please approve or deny the Sccaned Quality gate"
-            exclude-workflow-initiator-as-approver: false
             additional-approved-words: 'Accepted'
             additional-denied-words: 'Rejected'
             
