@@ -29,11 +29,9 @@
         uses: trstringer/manual-approval@v1
         with:
           github-token: ${{ secrets.GT_TOKEN }}
-          reviewers: Abhi-Moreyeahs, drashinkar
+          reviewers: Abhi-Moreyeahs
           team-reviewers: Abhi-Moreyeahs, drashinkar
           message: Please review the code changes and approve or request changes.     
-          additional-approved-words: 'Accepted'
-          additional-denied-words: 'Rejected'
             
 
 
