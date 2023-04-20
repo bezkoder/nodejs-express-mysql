@@ -21,17 +21,14 @@
        env:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          
-   approval:
-     runs-on: ubuntu-latest
-     
-     steps:    
-      - name: Request approval
-        uses: trstringer/manual-approval@v1
-        with:
-          github-token: ${{ secrets.GT_TOKEN }}
-          reviewers: Abhi-Moreyeahs
-          team-reviewers: Abhi-Moreyeahs, drashinkar
-          message: Please review the code changes and approve or request changes.     
+     - name: Request approval
+       uses: trstringer/manual-approval@v1
+       with:
+         github-token: ${{ secrets.GT_TOKEN }}
+         reviewers: Abhi-Moreyeahs
+         team-reviewers: Abhi-Moreyeahs
+         message: Please review the code changes and approve or request changes.   
+          
             
 
 
