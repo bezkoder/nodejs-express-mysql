@@ -17,7 +17,7 @@
           fetch-depth: 0
 
      - name: SonarCloud Scaning Process
-       uses: SonarSource/sonarcloud-github-action@v1.3
+       uses: SonarSource/sonarcloud-github-action@master
        env:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          
