@@ -3,14 +3,18 @@
    push:
      branches:
        - master
+   pull_request:
+    types: [opened, synchronize, reopened]
+    
  jobs:
    sonarcloud:
      name: SonarCloud Scan and Quality Gate
      runs-on: ubuntu-latest
      
      steps:
-     - name: Checkout code
-       uses: actions/checkout@v2
+     - uses: actions/checkout@v2
+       with:
+          fetch-depth: 0
 
      - name: SonarCloud Scaning Process
        uses: SonarSource/sonarcloud-github-action@v1.3
