@@ -24,7 +24,7 @@
      - name: Request approval
        uses: trstringer/manual-approval@v1
        with:
-         github-token: ${{ secrets.GT_TOKEN }}
+         github-token: ${{ secrets.GT_token }}
          reviewers: Abhi-Moreyeahs
          team-reviewers: Abhi-Moreyeahs
          message: Please review the code changes and approve or request changes.   
