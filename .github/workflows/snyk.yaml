@@ -26,7 +26,7 @@
      
      steps:    
       - name: Request approval
-        uses: pullreminders/request-review-action@v1
+        uses: trstringer/manual-approval@v1
         with:
           github-token: ${{ secrets.GT_TOKEN }}
           reviewers: Abhi-Moreyeahs, drashinkar
