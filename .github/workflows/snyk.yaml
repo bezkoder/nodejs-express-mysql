@@ -21,14 +21,21 @@
        env:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          
-     - name: Wait for Quality Gate Approval
-       id: quality-gate
-       uses: peaceiris/actions-approval@v2
-       with:
-         message: 'Please review the SonarCloud Quality Gate report'
-         reviewers: "<Abhi-Moreyeahs>" 
-         
-     - name: Check Quality Gate Status
-       if: steps.quality-gate.outputs.approved == 'true'
-       run: echo 'Quality Gate passed!' 
+   approval:
+     runs-on: ubuntu-latest
+     
+     steps:    
+      - name: Review request
+        uses: trstringer/manual-approval@v1
+        with:
+            secret: ${{ secrets.SONAR_TOKEN }}
+            approvers: Abhi-Moreyeahs  
+            minimum-approvals: 1
+            issue-title: "Sonar CLoud Scanning Process"
+            issue-body: "Please approve or deny the Sccaned Quality gate"
+            exclude-workflow-initiator-as-approver: false
+            additional-approved-words: 'Accepted'
+            additional-denied-words: 'Rejected'
+            
+
 
