@@ -28,7 +28,7 @@
       - name: Review request
         uses: trstringer/manual-approval@v1
         with:
-            secret: ${{ secrets.SONAR_TOKEN }}
+            secret: ${{ secrets.GT_TOKEN }}
             approvers: Abhi-Moreyeahs  
             minimum-approvals: 1
             issue-title: "Sonar CLoud Scanning Process"
