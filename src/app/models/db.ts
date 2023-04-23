@@ -1,8 +1,7 @@
-const mysql = require("mysql");
-const fs = require("fs");
-const dbConfig = require("../config/db.config.js");
+import mysql from "mysql";
+import { config as dbConfig } from "../config/db.config";
 
-var connection = mysql.createPool({
+export const connection = mysql.createPool({
   host: dbConfig.HOST,
   user: dbConfig.USER,
   password: dbConfig.PASSWORD,
@@ -11,5 +10,3 @@ var connection = mysql.createPool({
     ca: `-----BEGIN CERTIFICATE-----\n${dbConfig.CERTIFICATE}\n-----END CERTIFICATE-----`,
   },
 });
-
-module.exports = connection;

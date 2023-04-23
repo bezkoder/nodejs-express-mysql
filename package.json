@@ -6,12 +6,6 @@
   "scripts": {
     "start": "node ./src/server.js"
   },
-  "keywords": [
-    "nodejs",
-    "express",
-    "mysql",
-    "restapi"
-  ],
   "author": "bezkoder",
   "license": "ISC",
   "dependencies": {
@@ -20,6 +14,11 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/mysql": "^2.15.21",
+    "@types/node": "^18.16.0",
     "typescript": "^5.0.4"
   }
 }
