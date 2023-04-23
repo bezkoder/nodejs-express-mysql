@@ -1,9 +1,7 @@
 {
   "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "rootDir": ".",
-
-    "baseUrl": ".",
+    "outDir": "dist",
     "preserveConstEnums": true
   },
   "include": ["src/**/*"],

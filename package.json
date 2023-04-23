@@ -2,9 +2,10 @@
   "name": "nodejs-express-mysql",
   "version": "1.0.0",
   "description": "Node.js Restful CRUD API with Node.js, Express and MySQL",
-  "main": "src/server.js",
+  "main": "dist/main.js",
   "scripts": {
-    "start": "node ./src/server.js"
+    "build": "tsc",
+    "start": "yarn build && node ./dist/main.js"
   },
   "author": "bezkoder",
   "license": "ISC",
