@@ -1,5 +1,5 @@
 import express from "express";
-import { TutorialDB } from "../models/tutorial.model.js";
+import { TutorialDB } from "../models/db";
 
 // Create and Save a new Tutorial
 export function create(req: express.Request, res: express.Response) {

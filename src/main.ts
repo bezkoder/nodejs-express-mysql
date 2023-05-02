@@ -1,11 +1,10 @@
-import express from "express";
-// const bodyParser = require("body-parser"); /* deprecated */
 import cors from "cors";
+import express from "express";
 import { setRouter } from "./app/routes/tutorial.routes";
 
 const app = express();
 
-var corsOptions = {
+const corsOptions = {
   origin: process.env.ALLOWED_ORIGIN,
 };
 
