@@ -1,6 +1,7 @@
 import mysql, { MysqlError } from "mysql";
 import { config as dbConfig } from "../config/db.config";
-import { Tutorial } from "./tutorial.model";
+import { Tutorial } from "../models/tutorial.model";
+import { Database } from "./db.interface";
 
 const sql = mysql.createPool({
   host: dbConfig.HOST,
@@ -14,8 +15,8 @@ const sql = mysql.createPool({
 
 type Result = (err: MysqlError | Error | null, data: any) => unknown;
 
-export class TutorialDB {
-  static create(newTutorial: Tutorial, result: Result) {
+export class TutorialSqlDB implements Database {
+  create(newTutorial: Tutorial, result: Result) {
     sql.query("INSERT INTO tutorials SET ?", newTutorial, (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -28,7 +29,7 @@ export class TutorialDB {
     });
   }
 
-  static findById(id: string, result: Result) {
+  findById(id: string, result: Result) {
     sql.query(`SELECT * FROM tutorials WHERE id = ${id}`, (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -47,7 +48,7 @@ export class TutorialDB {
     });
   }
 
-  static getAll(title: string, result: Result) {
+  getAll(title: string, result: Result) {
     let query = "SELECT * FROM tutorials";
 
     if (title) {
@@ -66,7 +67,7 @@ export class TutorialDB {
     });
   }
 
-  static getAllPublished(result: Result) {
+  getAllPublished(result: Result) {
     sql.query("SELECT * FROM tutorials WHERE published=true", (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -79,7 +80,7 @@ export class TutorialDB {
     });
   }
 
-  static updateById(id: string, tutorial: Tutorial, result: Result) {
+  updateById(id: string, tutorial: Tutorial, result: Result) {
     sql.query(
       "UPDATE tutorials SET title = ?, description = ?, published = ? WHERE id = ?",
       [tutorial.title, tutorial.description, tutorial.published, id],
@@ -102,7 +103,7 @@ export class TutorialDB {
     );
   }
 
-  static remove(id: string, result: Result) {
+  remove(id: string, result: Result) {
     sql.query("DELETE FROM tutorials WHERE id = ?", id, (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -121,7 +122,7 @@ export class TutorialDB {
     });
   }
 
-  static removeAll(result: Result) {
+  removeAll(result: Result) {
     sql.query("DELETE FROM tutorials", (err, res) => {
       if (err) {
         console.log("error: ", err);

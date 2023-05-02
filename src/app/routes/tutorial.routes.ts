@@ -1,7 +1,8 @@
 import * as express from "express";
+import { TutorialController } from "../controllers/tutorial.controller";
 
 export function setRouter(x: express.Application) {
-  const tutorials = require("../controllers/tutorial.controller.js");
+  const tutorials = new TutorialController();
 
   var router = express.Router();
 
