@@ -1,7 +1,10 @@
-module.exports = app => {
-  const tutorials = require("../controllers/tutorial.controller.js");
+import * as express from "express";
+import { TutorialController } from "../controllers/tutorial.controller";
 
-  var router = require("express").Router();
+export function setRouter(x: express.Application) {
+  const tutorials = new TutorialController();
+
+  var router = express.Router();
 
   // Create a new Tutorial
   router.post("/", tutorials.create);
@@ -19,10 +22,10 @@ module.exports = app => {
   router.put("/:id", tutorials.update);
 
   // Delete a Tutorial with id
-  router.delete("/:id", tutorials.delete);
+  router.delete("/:id", tutorials.remove);
 
   // Delete all Tutorials
   router.delete("/", tutorials.deleteAll);
 
-  app.use('/api/tutorials', router);
-};
+  x.use("/api/tutorials", router);
+}

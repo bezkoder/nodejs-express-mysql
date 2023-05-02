@@ -1,10 +1,10 @@
-const express = require("express");
-// const bodyParser = require("body-parser"); /* deprecated */
-const cors = require("cors");
+import cors from "cors";
+import express from "express";
+import { setRouter } from "./app/routes/tutorial.routes";
 
 const app = express();
 
-var corsOptions = {
+const corsOptions = {
   origin: process.env.ALLOWED_ORIGIN,
 };
 
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 
-require("./app/routes/tutorial.routes.js")(app);
+setRouter(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
