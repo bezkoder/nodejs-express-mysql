@@ -8,8 +8,8 @@ export class CosmosService implements Crud {
   private container: Container;
   constructor() {
     const client = new CosmosClient({
-      endpoint: 'https://tutorials.documents.azure.com:443/', //process.env.COSMOS_ENDPOINT as string,
-      key: 'awnEhzZre2ATHa6W9KDTatWN462edXWv3rVLkjAiOnHj6ApQR7BvpHyw7VXpAed185ggKCZ1OYsNACDbivmROA==', //process.env.COSMOS_PRIMARY_KEY,
+      endpoint: process.env.COSMOS_ENDPOINT as string,
+      key: process.env.COSMOS_PRIMARY_KEY,
     });
     const db = client.database('tutorials');
     this.container = db.container('tutorials');

@@ -3,6 +3,9 @@ import { AppModule } from './app.module';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const cors = require('cors');
 
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 const corsOptions = {
   origin: '*',
 };
