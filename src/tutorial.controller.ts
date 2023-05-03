@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { CosmosService } from './cosmos.service';
 import { Tutorial } from './models/tutorial.model';
 
@@ -16,6 +24,11 @@ export class TutorialController {
     return await this.service.getAll();
   }
 
+  @Get('published')
+  async getPublished() {
+    return await this.service.getAllPublished();
+  }
+
   @Get(':id')
   async findById(@Param('id') id: string) {
     return await this.service.findById(id);
@@ -24,5 +37,10 @@ export class TutorialController {
   @Delete(':id')
   async delete(@Param('id') id: string) {
     await this.service.remove(id);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: string, @Body() tutorial: Tutorial) {
+    await this.service.updateById(id, tutorial);
   }
 }
