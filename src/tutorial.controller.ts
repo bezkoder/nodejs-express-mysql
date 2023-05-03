@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { CosmosService } from './cosmos.service';
 import { Tutorial } from './models/tutorial.model';
@@ -20,8 +21,13 @@ export class TutorialController {
   }
 
   @Get()
-  async getAll() {
-    return await this.service.getAll();
+  async getAll(@Query('title') title: string | undefined) {
+    console.log(title);
+
+    if (title == null || title == '') {
+      return await this.service.getAll();
+    }
+    return await this.service.getAllWith(title);
   }
 
   @Get('published')

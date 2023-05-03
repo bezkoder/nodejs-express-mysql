@@ -1,4 +1,4 @@
-import { Container, CosmosClient, Resource } from '@azure/cosmos';
+import { Container, CosmosClient, Resource, SqlQuerySpec } from '@azure/cosmos';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { Crud } from './db.interface';
 import { Tutorial } from './models/tutorial.model';
@@ -30,6 +30,30 @@ export class CosmosService implements Crud {
     return this.extractTutorial(resource);
   }
 
+  async getAllWith(prefix: string) {
+    const querySpec: SqlQuerySpec = {
+      query: 'SELECT * from c WHERE STARTSWITH(c.title, @prefix)',
+      parameters: [
+        {
+          name: '@prefix',
+          value: prefix,
+        },
+      ],
+    };
+
+    const { resources } = await this.container.items
+      .query(querySpec)
+      .fetchAll();
+    const result: Tutorial[] = [];
+
+    for (const item of resources) {
+      result.push(this.extractTutorial(item as Tutorial & Resource));
+    }
+    console.log('with', result);
+
+    return result;
+  }
+
   async getAll(): Promise<Tutorial[]> {
     const { resources } = await this.container.items.readAll().fetchAll();
     const result: Tutorial[] = [];
@@ -57,7 +81,6 @@ export class CosmosService implements Crud {
     for (const item of resources) {
       result.push(this.extractTutorial(item as Tutorial & Resource));
     }
-    console.log('published', result);
 
     return result;
   }
