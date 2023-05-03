@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "@azure/cosmos": "^3.17.3",
+    "@azure/identity": "^3.1.4",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "mysql": "^2.18.1"
   },
