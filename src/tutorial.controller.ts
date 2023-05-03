@@ -22,8 +22,6 @@ export class TutorialController {
 
   @Get()
   async getAll(@Query('title') title: string | undefined) {
-    console.log(title);
-
     if (title == null || title == '') {
       return await this.service.getAll();
     }
@@ -48,5 +46,10 @@ export class TutorialController {
   @Put(':id')
   async update(@Param('id') id: string, @Body() tutorial: Tutorial) {
     await this.service.updateById(id, tutorial);
+  }
+
+  @Delete()
+  async deleteAll() {
+    await this.service.removeAll();
   }
 }

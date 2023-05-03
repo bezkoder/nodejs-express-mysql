@@ -49,7 +49,6 @@ export class CosmosService implements Crud {
     for (const item of resources) {
       result.push(this.extractTutorial(item as Tutorial & Resource));
     }
-    console.log('with', result);
 
     return result;
   }
@@ -101,8 +100,14 @@ export class CosmosService implements Crud {
     await item.delete();
   }
 
-  removeAll(): Promise<void> {
-    throw new Error('Method not implemented.');
+  async removeAll(): Promise<void> {
+    const { resources: items } = await this.container.items
+      .readAll()
+      .fetchAll();
+
+    for (const item of items) {
+      await this.container.item(item.id, item.id).delete();
+    }
   }
 
   private extractTutorial(resource: Tutorial & Resource): Tutorial {
