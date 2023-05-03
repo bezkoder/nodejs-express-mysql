@@ -1,32 +1,16 @@
-import cors from "cors";
-import express from "express";
-import { setRouter } from "./app/routes/tutorial.routes";
-
-const app = express();
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const cors = require('cors');
 
 const corsOptions = {
-  origin: process.env.ALLOWED_ORIGIN,
+  origin: '*',
 };
 
-app.use(cors(corsOptions));
-
-// parse requests of content-type - application/json
-app.use(express.json()); /* bodyParser.json() is deprecated */
-
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(
-  express.urlencoded({ extended: true })
-); /* bodyParser.urlencoded() is deprecated */
-
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
-});
-
-setRouter(app);
-
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.use(cors(corsOptions));
+  app.setGlobalPrefix('api');
+  await app.listen(3000);
+}
+bootstrap();
