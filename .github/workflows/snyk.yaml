@@ -1,0 +1,32 @@
+ name: Sonar Scan
+ on:
+   push:
+     branches:
+       - master
+   pull_request:
+    types: [opened, synchronize, reopened]
+    
+ jobs:
+   sonarcloud:
+     name: SonarCloud Scan and Quality Gate
+     runs-on: ubuntu-latest
+     
+     steps:
+     - uses: actions/checkout@v2
+       with:
+          fetch-depth: 0
+
+     - name: SonarCloud Scaning Process
+       uses: SonarSource/sonarcloud-github-action@master
+       env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+         
+     #- name: approval
+     # uses: trstringer/manual-approval@v1
+     # with:
+     #  secret: ${{ secrets.GT_TOKEN }}
+     # approvers: Abhi-Moreyeahs
+          
+            
+
+
