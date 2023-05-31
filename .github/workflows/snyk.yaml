@@ -21,11 +21,11 @@
        env:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          
-     - name: approval
-       uses: trstringer/manual-approval@v1
-       with:
-        secret: ${{ secrets.GT_TOKEN }}
-        approvers: Abhi-Moreyeahs
+     #- name: approval
+     # uses: trstringer/manual-approval@v1
+     # with:
+     #  secret: ${{ secrets.GT_TOKEN }}
+     # approvers: Abhi-Moreyeahs
           
             
 
